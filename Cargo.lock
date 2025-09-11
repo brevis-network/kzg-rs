@@ -20,6 +20,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0c4b4d0bd25bd0b74681c0ad21497610ce1b7c91b1022cd21c80c6fbdd9476b0"
 
 [[package]]
+name = "bincode"
+version = "1.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b1f45e9417d87227c7a56d22e471c6206462cba514c7590c09aff4cf6d1ddcad"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "block-buffer"
 version = "0.10.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -31,12 +40,13 @@ dependencies = [
 [[package]]
 name = "bls12_381"
 version = "0.8.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d7bc6d6292be3a19e6379786dac800f551e5865a5bb51ebbe3064ab80433f403"
+source = "git+https://github.com/brevis-network/bls12_381?branch=patch-v1.0.1#4738552f987d748367fd6a055f3ae08797739fba"
 dependencies = [
+ "cfg-if",
  "ff",
  "group",
  "pairing",
+ "pico-patch-libs",
  "rand_core",
  "subtle",
 ]
@@ -167,7 +177,7 @@ checksum = "49f1f14873335454500d59611f1cf4a4b0f786f9ac11f4312a78e4cf2566695b"
 
 [[package]]
 name = "kzg-rs"
-version = "0.2.6"
+version = "0.2.7"
 dependencies = [
  "bls12_381",
  "ff",
@@ -221,6 +231,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "81fec4625e73cf41ef4bb6846cafa6d44736525f442ba45e407c4a000a13996f"
 dependencies = [
  "group",
+]
+
+[[package]]
+name = "pico-patch-libs"
+version = "1.1.6"
+source = "git+https://github.com/brevis-network/pico.git#b52a89e4551b3f28086f7aae49505631845bf961"
+dependencies = [
+ "bincode",
+ "serde",
 ]
 
 [[package]]
